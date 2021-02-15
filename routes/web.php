@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@welcome');
+Route::get('/home', 'PagesController@home');
+Route::get('/about', 'PagesController@about');
 
-Route::get('/home', function () {
-    return view('home');
-});
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
+//mahasiswa
+//Route::get('/mahasiswa', 'MahasiswaController@index');
+
+//Students
+Route::get('/students', 'StudentsController@index');
+Route::get('/students/create', 'StudentsController@create');
+Route::get('/students/{student}', 'StudentsController@show');
+Route::post('/students', 'StudentsController@store');
+Route::delete('/students/{student}', 'StudentsController@destroy');
+Route::get('/students/{student}/edit', 'StudentsController@edit');
+Route::patch('/students/{student}', 'StudentsController@update');
